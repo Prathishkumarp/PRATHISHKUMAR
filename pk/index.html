@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stellar Insights — Personalized Astrology Predictions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <main class="container">
+    <header class="header">
+      <h1>Stellar Insights</h1>
+      <p class="tagline">Personalized astrology predictions delivered to your inbox</p>
+      <p class="instructions">
+        Fill in your birth details below. Your personalized prediction will be generated using AI and sent to your email. 
+        All fields marked with <span class="required-mark">*</span> are required.
+      </p>
+    </header>
+
+    <form id="astrology-form" class="form" novalidate>
+      <section class="form-section">
+        <h2>Your Details</h2>
+
+        <div class="field">
+          <label for="fullName">Full name <span class="required-mark">*</span></label>
+          <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="100" 
+                 placeholder="e.g. Jane Smith" autocomplete="name">
+          <span class="error" id="fullName-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="dateOfBirth">Date of birth <span class="required-mark">*</span></label>
+          <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+          <span class="error" id="dateOfBirth-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="timeOfBirth">Time of birth <span class="optional">(optional)</span></label>
+          <input type="time" id="timeOfBirth" name="timeOfBirth" placeholder="HH:MM">
+          <span class="hint">Improves accuracy when known</span>
+        </div>
+
+        <div class="field">
+          <label for="placeOfBirth">Place of birth <span class="required-mark">*</span></label>
+          <input type="text" id="placeOfBirth" name="placeOfBirth" required minlength="2" maxlength="200" 
+                 placeholder="City, Country (e.g. London, UK)" autocomplete="off">
+          <span class="error" id="placeOfBirth-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="gender">Gender <span class="optional">(optional)</span></label>
+          <select id="gender" name="gender">
+            <option value="">Prefer not to say</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="non-binary">Non-binary</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="areaOfFocus">Area of focus <span class="required-mark">*</span></label>
+          <select id="areaOfFocus" name="areaOfFocus" required>
+            <option value="">Choose an area...</option>
+            <option value="career">Career & work</option>
+            <option value="health">Health & wellness</option>
+            <option value="relationships">Relationships & love</option>
+            <option value="finance">Finance & abundance</option>
+            <option value="personal-growth">Personal growth & spirituality</option>
+            <option value="family">Family & home</option>
+            <option value="general">General life overview</option>
+          </select>
+          <span class="error" id="areaOfFocus-error" aria-live="polite"></span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email address <span class="required-mark">*</span></label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email">
+          <span class="error" id="email-error" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <div class="form-actions">
+        <button type="submit" id="submit-btn" class="btn btn-primary">
+          <span class="btn-text">Get my prediction</span>
+          <span class="btn-loading" aria-hidden="true">Sending...</span>
+        </button>
+      </div>
+    </form>
+
+    <div id="success-message" class="message success" role="alert" hidden>
+      <h3>Request received</h3>
+      <p>Your personalized prediction is being generated and will be sent to your email shortly. Please check your inbox (and spam folder).</p>
+    </div>
+
+    <div id="error-message" class="message error" role="alert" hidden>
+      <h3>Something went wrong</h3>
+      <p id="error-message-text">Please try again later or check your connection.</p>
+    </div>
+
+    <footer class="footer">
+      <p class="disclaimer">
+        Predictions are for guidance and entertainment only. They do not replace professional advice in health, legal, or financial matters.
+      </p>
+    </footer>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
